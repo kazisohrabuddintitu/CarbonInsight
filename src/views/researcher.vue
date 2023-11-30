@@ -29,41 +29,21 @@
                   </svg>
                 </button>
               </div>
-              <div class="hidden md:flex items-center space-x-4">
-                <a href="#graph" class="hover:text-gray-300">Graph</a>
+              <div class="hidden md:flex items-center space-x-4">             
                 <a href="#dataentry" class="hover:text-gray-300">Data entry</a>
+                <a href="#graph" class="hover:text-gray-300">Graph</a>
                 <a href="/" class="hover:text-gray-300">Logout</a>
               </div>
             </div>
 
             <!-- Responsive menu -->
-            <div v-show="showMenu" class="md:hidden">
-              <a href="#graph" class="block py-2 px-4 text-sm hover:bg-gray-700">Graph</a>
+            <div v-show="showMenu" class="md:hidden">           
               <a href="dataentry" class="block py-2 px-4 text-sm hover:bg-gray-700">Data entry</a>
+              <a href="#graph" class="block py-2 px-4 text-sm hover:bg-gray-700">Graph</a>
               <a href="/" class="block py-2 px-4 text-sm hover:bg-gray-700">Logout</a>
             </div>
         </nav>
    
-        <h1 class="text-center font-bold text-4xl m-5">DashBoard</h1>
-
-        <!-- Charts and Graphs section -->
-        <div class="bg-gray-200 mx-2 rounded border-r-8" id="graph">
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-20 m-10">
-            <div class="p-2 bg-blue-200 h-40 md:h-80 lg:h-100">
-              <h2 class="text-lg font-semibold">Pie Chart of all GHG</h2>
-              <canvas ref="pieChartCanvas" class="md:p-5 pb-5"></canvas>
-            </div>
-            <div class="p-4 bg-green-200 h-40 md:h-80 lg:h-100">
-              <h2 class="text-lg font-semibold">Graph of GHG emission over a period of time</h2>
-              <canvas ref="lineGraphCanvas" class="md:pb-2 pb-5"></canvas>
-            </div>
-            <div class="p-4 bg-yellow-200 h-40 md:h-80 lg:h-100">
-              <h2 class="text-lg font-semibold">Bar Chart of GHG emission by sectors</h2>
-              <canvas ref="barChartCanvas" class="md:p-2 pb-5"></canvas>
-            </div>
-          </div>
-        </div>
-        
         <!-- Data Entry section -->
         <div class="bg-gray-100 px-10 pb-10 py-3 mx-2 mt-20 rounded-r-8 mb-10" id="dataentry">
           <h2 class="text-4xl font-semibold text-center">Data Entry</h2>
@@ -112,6 +92,24 @@
           </div>
         </div>
 
+        <!-- Charts and Graphs section -->
+        <div class="bg-gray-200 mx-2 rounded border-r-8" id="graph">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-20 m-10">
+            <div class="p-2 bg-blue-200 h-40 md:h-80 lg:h-100">
+              <h2 class="text-lg font-semibold">Pie Chart of all GHG</h2>
+              <canvas ref="pieChartCanvas" class="md:p-5 pb-5"></canvas>
+            </div>
+            <div class="p-4 bg-green-200 h-40 md:h-80 lg:h-100">
+              <h2 class="text-lg font-semibold">Graph of GHG emission over a period of time</h2>
+              <canvas ref="lineGraphCanvas" class="md:pb-2 pb-5"></canvas>
+            </div>
+            <div class="p-4 bg-yellow-200 h-40 md:h-80 lg:h-100">
+              <h2 class="text-lg font-semibold">Bar Chart of GHG emission by sectors</h2>
+              <canvas ref="barChartCanvas" class="md:p-2 pb-5"></canvas>
+            </div>
+          </div>
+        </div>
+        
         <!-- Footer section -->
         <div>
           <!-- Line above footer -->

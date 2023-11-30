@@ -32,7 +32,7 @@
             >
               <option value="admin">Admin</option>
               <option value="user">User</option>
-              <option value="user2">User 2</option>
+              <option value="researcher">Researcher</option>
             </select>
           </div>
           <button type="submit" class="w-full bg-blue-500 text-white rounded py-2 px-4 hover:bg-blue-600 transition duration-300">Login</button>
@@ -74,7 +74,11 @@
         else if (this.userId === 'admin' && this.password === 'admin' && this.userType === 'admin' ) {
           this.authenticated = true;
           this.$router.push('/admin');
-        } 
+        }
+        else if (this.userId === 'researcher' && this.password === 'researcher' && this.userType === 'researcher' ) {
+          this.authenticated = true;
+          this.$router.push('/researcher');
+        }
         else {
           this.error = 'Invalid credentials. Please try again.';
         }

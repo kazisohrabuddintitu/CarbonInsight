@@ -1,5 +1,11 @@
 # CARBONINSIGNT 
 
+```sh
+user id: user, pass: user, type: User
+user id: admin, pass: admin, type: Admin
+user id: researcher, pass: researcher, type: Researcher
+```
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
