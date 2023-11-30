@@ -1,4 +1,6 @@
+
 <template>
+  
     <div class="bg-white min-h-screen">
         <!-- Title section -->
         <div class=" py-4 text-center">
@@ -10,31 +12,28 @@
           <p class="text-lg text-center md:text-left">Summary of the website goes here</p>
         </div>
 
-    
-        <!-- Three boxes section -->
+        <!-- Charts and Graphs section -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-20 m-10">
-          <div class="p-4 bg-blue-200 h-40">
-            <h2 class="text-lg font-semibold">Box 1</h2>
-            <p>Description or content related to Box 1</p>
+          <div class="p-2 bg-blue-200 h-40 md:h-80 lg:h-100">
+            <h2 class="text-lg font-semibold">Pie Chart of all GHG</h2>
+            <canvas ref="pieChartCanvas" class="md:p-5 pb-5"></canvas>
           </div>
-          <div class="p-4 bg-green-200 h-40">
-            <h2 class="text-lg font-semibold">Box 2</h2>
-            <p>Description or content related to Box 2</p>
+          <div class="p-4 bg-green-200 h-40 md:h-80 lg:h-100">
+            <h2 class="text-lg font-semibold">Graph of GHG emission over a period of time</h2>
+            <canvas ref="lineGraphCanvas" class="md:pb-2 pb-5"></canvas>
           </div>
-          <div class="p-4 bg-yellow-200 h-40">
-            <h2 class="text-lg font-semibold">Box 3</h2>
-            <p>Description or content related to Box 3</p>
+          <div class="p-4 bg-yellow-200 h-40 md:h-80 lg:h-100">
+            <h2 class="text-lg font-semibold">Bar Chart of GHG emission by sectors</h2>
+            <canvas ref="barChartCanvas" class="md:p-2 pb-5"></canvas>
           </div>
         </div>
 
-
-
-
+        <!-- Calculator section -->
         <div class="grid md:grid-cols-3 m-10 mt-20 h-40 gap-4">
           <div class="hidden md:block"></div>
           <div class="hidden md:block"></div>
           <div class="bg-blue-200 p-4">
-              This box stays right on larger screens and centers on mobile
+              Calculate your carbon footprint
           </div>
         </div>
 
@@ -49,10 +48,55 @@
         </footer>
     </div>
   </template>
+
   
   <script>
+  import Chart from 'chart.js/auto';
+
+
   export default {
-};
+    mounted() {
+    const pieChartData = {
+    labels: ['Red', 'Blue', 'Yellow'],
+    datasets: [{
+      label: 'Example Pie Chart',
+      data: [30, 40, 30],
+      backgroundColor: ['red', 'blue', 'yellow'],
+    }]
+  };
+
+  const lineGraphData = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [{
+      label: 'Example Line Graph',
+      data: [65, 59, 80, 81, 56, 55, 40],
+      fill: false,
+      borderColor: 'green',
+    }]
+  };
+
+  const barChartData = {
+    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    datasets: [{
+      label: 'Example Bar Chart',
+      data: [12, 19, 3, 5, 2, 3],
+      backgroundColor: ['red', 'blue', 'yellow', 'green', 'purple', 'orange'],
+    }]
+  };
+  this.renderChart('pieChartCanvas', 'pie', pieChartData);
+  this.renderChart('lineGraphCanvas', 'line', lineGraphData);
+  this.renderChart('barChartCanvas', 'bar', barChartData);
+  },
+  methods: {
+    renderChart(canvasId, type, data) {
+      const ctx = this.$refs[canvasId].getContext('2d');
+      new Chart(ctx, {
+        type: type,
+        data: data,
+      });
+    },
+  },
+  };
   </script>
   
   
